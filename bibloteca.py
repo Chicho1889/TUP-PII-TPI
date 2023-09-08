@@ -77,6 +77,22 @@ def prestar_ejemplar_libro():
 
 def devolver_ejemplar_libro():
     # Opción 2 del menú - Devuelve un libro - Agregar uno al stock de libros prestados
+    codigo_a_buscar=input("Por favor ingrese el código del libro que se está devolviendo: ")
+    for libro in libros:
+        if codigo_a_buscar==libro["cod"]:
+            if libro["cant_ej_pr"]==libro["cant_ej_ad"]:
+                print("Es imposible que se hayan prestado más libros de los que se adquirieron, por favor verifique el código ingresado")
+            elif libro["cant_ej_pr"]==0:
+                print("Hay un error, no fue prestado ningún libro con ese código, por favor verifique.")
+            else:
+                libro["cant_ej_pr"]-=1
+                print(f"Con la presente devolución, los prestamos totales efectuados del código: {codigo_a_buscar} es de: ")
+                print(libro["cant_ej_pr"])
+                libro["cant_ej_ad"]+=1
+                print(f"El stock de libros del código: {codigo_a_buscar} fue actualizado, ahora hay disponibles para prestar un total de: ")
+                print(libro["cant_ej_ad"])
+            return
+    print(f"El código ingresado: {codigo_a_buscar} no se encuentra asignado a ningún libro existente, verifique.\n")
     return None
 
 def nuevo_libro():
