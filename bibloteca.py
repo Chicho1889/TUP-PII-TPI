@@ -25,7 +25,7 @@ def ejemplares_prestados():
             print(f"El libro {nombre}, cuyo código es {codigo}, no tiene préstamos registrados.")
             print("-----------------------------------------------------------------------------------------------------------------------------")
         else:
-            print(f"{codigo} {nombre} {autor} {cant_prestados} {cantidad}")
+            print(f"{codigo}   {nombre}                             {autor}               {cant_prestados}                   {cantidad}")
     return None
 
 def registrar_nuevo_libro():
